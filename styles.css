@@ -1,0 +1,17 @@
+/* Hide the difficulty labels in the list of problems (Easy, Medium, Hard) */
+.text-olive, 
+.text-yellow, 
+.text-pink, 
+.dark\:text-dark-olive, 
+.dark\:text-dark-yellow, 
+.dark\:text-dark-pink,
+
+/* Hide the difficulty tags on the problem details page (Easy, Medium, Hard) */
+.text-difficulty-easy, 
+.text-difficulty-medium, 
+.text-difficulty-hard, 
+.dark\:text-difficulty-easy, 
+.dark\:text-difficulty-medium, 
+.dark\:text-difficulty-hard {
+    display: none !important;
+}

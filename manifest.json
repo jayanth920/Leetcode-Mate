@@ -1,0 +1,18 @@
+{
+    "manifest_version": 3,
+    "name": "LeetCode Difficulty Hider",
+    "version": "1.0",
+    "description": "This extension hides the difficulty level on LeetCode problems.",
+    "permissions": ["activeTab"],
+    "content_scripts": [
+      {
+        "matches": ["https://leetcode.com/*"],
+        "js": ["content.js"],
+        "css": ["styles.css"]
+      }
+    ],
+    "icons": {
+      "128": "icon128.png"
+    }
+  }
+  
