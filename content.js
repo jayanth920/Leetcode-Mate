@@ -11,7 +11,7 @@ function styleDifficultyTags() {
             el.style.color = 'transparent'; // Make text invisible
         });
     } catch (e) {
-        console.error("Error in styleDifficultyTags:", e);
+        console.log("Error in styleDifficultyTags:", e);
     }
 }
 
@@ -33,7 +33,7 @@ function replaceCountDivContent() {
             countDiv.innerHTML = 'HIDDEN (DISABLE EXTENSION TO VIEW)';
         });
     } catch (e) {
-        console.error("Error in replaceCountDivContent:", e);
+        console.log("Error in replaceCountDivContent:", e);
     }
 }
 
@@ -45,9 +45,39 @@ function replaceAbsoluteDivContent() {
             absoluteDiv.innerHTML = 'DISABLE LEETCODE DIFFICULTY HELPER EXTENSION!';
         }
     } catch (e) {
-        console.error("Error in replaceAbsoluteDivContent:", e);
+        console.log("Error in replaceAbsoluteDivContent:", e);
     }
 }
+
+function hideTopicTags() {
+    try {
+        const topicTags = document.querySelectorAll('a.no-underline.hover\\:text-current.relative.inline-flex.items-center.justify-center.text-caption.px-2.py-1.gap-1.rounded-full.bg-fill-secondary.text-text-secondary');
+        topicTags.forEach(tag => {
+            tag.style.display = 'none'; // Alternatively, you can use tag.remove(); to completely remove it from the DOM
+        });
+    } catch (e) {
+        console.log("Error in hideTopicTags:", e);
+    }
+}
+
+function setSolutionTabSize() {
+    // Select the solution tab using the data-layout-path attribute
+    const solutionTab = document.querySelector('[data-layout-path="/c0/ts0"]'); // Replace with the actual path if needed
+    const qTab = document.querySelector('[data-layout-path="/c0/ts1"]'); // Replace with the actual path if needed
+
+    // Check if the element exists
+    if (solutionTab) {
+        // Set the width and height
+        // solutionTab.style.width = '462px';
+        solutionTab.style.height = '36px';
+    }
+s
+    if(qTab){
+        qTab.style.height = '585px';
+        qTab.style.top = '44px';
+    }
+}
+
 
 // Function to wait for the HTML to stabilize
 async function waitForStableHTML() {
@@ -56,15 +86,15 @@ async function waitForStableHTML() {
             try {
                 // Check for the presence of the stable elements to determine if the HTML is stable
                 const stable1 = document.querySelector('.text-xs.font-medium.text-sd-easy');
-                const stable2 = document.querySelector('.question-title.clearfix'); // New stable condition
+                const stable2 = document.querySelector('.flex.items-start.justify-between.gap-4'); // New stable condition
 
 
-                if (stable1) { // Using OR condition
+                if (stable1 || stable2) { // Using OR condition
                     observer.disconnect();
                     resolve();
                 }
             } catch (e) {
-                console.error("Error in waitForStableHTML observer:", e);
+                console.log("Error in waitForStableHTML observer:", e);
             }
         });
 
@@ -79,6 +109,8 @@ async function waitForStableHTML() {
     });
 }
 
+
+
 // Async function to wait and continue
 async function waitAndContinue() {
     console.log("Waiting for stable HTML");
@@ -90,8 +122,10 @@ async function waitAndContinue() {
         styleDifficultyTags(); // Call the new function to style difficulty tags
         replaceCountDivContent();
         replaceAbsoluteDivContent(); // Call the new function to replace absolute div content
+        hideTopicTags();
+        setSolutionTabSize();
     } catch (e) {
-        console.error("Error during initial setup in waitAndContinue:", e);
+        console.log("Error during initial setup in waitAndContinue:", e);
     }
     
     // Start observing for further changes
@@ -100,8 +134,10 @@ async function waitAndContinue() {
             styleDifficultyTags(); // Call the new function to style difficulty tags
             replaceCountDivContent();
             replaceAbsoluteDivContent(); // Call the new function to replace absolute div content
+            hideTopicTags();
+            setSolutionTabSize();
         } catch (e) {
-            console.error("Error during mutation observer callback:", e);
+            console.log("Error during mutation observer callback:", e);
         }
     }));
     
