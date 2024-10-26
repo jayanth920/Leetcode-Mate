@@ -60,23 +60,23 @@ function hideTopicTags() {
     }
 }
 
-function setSolutionTabSize() {
-    // Select the solution tab using the data-layout-path attribute
-    const solutionTab = document.querySelector('[data-layout-path="/c0/ts0"]'); // Replace with the actual path if needed
-    const qTab = document.querySelector('[data-layout-path="/c0/ts1"]'); // Replace with the actual path if needed
+// function setSolutionTabSize() {
+//     // Select the solution tab using the data-layout-path attribute
+//     const solutionTab = document.querySelector('[data-layout-path="/c0/ts0"]'); // Replace with the actual path if needed
+//     const qTab = document.querySelector('[data-layout-path="/c0/ts1"]'); // Replace with the actual path if needed
 
-    // Check if the element exists
-    if (solutionTab) {
-        // Set the width and height
-        // solutionTab.style.width = '462px';
-        solutionTab.style.height = '36px';
-    }
-s
-    if(qTab){
-        qTab.style.height = '585px';
-        qTab.style.top = '44px';
-    }
-}
+//     // Check if the element exists
+//     if (solutionTab) {
+//         // Set the width and height
+//         // solutionTab.style.width = '462px';
+//         solutionTab.style.height = '36px';
+//     }
+// s
+//     if(qTab){
+//         qTab.style.height = '585px';
+//         qTab.style.top = '44px';
+//     }
+// }
 
 
 // Function to wait for the HTML to stabilize
@@ -123,7 +123,7 @@ async function waitAndContinue() {
         replaceCountDivContent();
         replaceAbsoluteDivContent(); // Call the new function to replace absolute div content
         hideTopicTags();
-        setSolutionTabSize();
+        // setSolutionTabSize();
     } catch (e) {
         console.log("Error during initial setup in waitAndContinue:", e);
     }
@@ -135,7 +135,7 @@ async function waitAndContinue() {
             replaceCountDivContent();
             replaceAbsoluteDivContent(); // Call the new function to replace absolute div content
             hideTopicTags();
-            setSolutionTabSize();
+            // setSolutionTabSize();
         } catch (e) {
             console.log("Error during mutation observer callback:", e);
         }
