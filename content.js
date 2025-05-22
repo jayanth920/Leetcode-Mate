@@ -1,11 +1,51 @@
+(function injectCSS() {
+    const style = document.createElement('style');
+    style.textContent = `
+        .text-olive,
+        .text-yellow,
+        .text-pink,
+        .dark\\:text-dark-olive,
+        .dark\\:text-dark-yellow,
+        .dark\\:text-dark-pink,
+        .text-difficulty-easy,
+        .text-difficulty-medium,
+        .text-difficulty-hard,
+        .dark\\:text-difficulty-easy,
+        .dark\\:text-difficulty-medium,
+        .dark\\:text-difficulty-hard,
+        .pull-right.label.label-Medium.round,
+        .text-sd-easy,
+        .text-sd-medium,
+        .text-sd-hard,
+        .mx-0.text-\\[14px\\].text-sd-easy.lc-xl\\:mx-4,
+        .mx-0.text-\\[14px\\].text-sd-medium.lc-xl\\:mx-4,
+        .mx-0.text-\\[14px\\].text-sd-hard.lc-xl\\:mx-4 {
+            color: transparent !important;
+            background-color: white !important;
+        }
+
+        a.no-underline.hover\\:text-current.relative.inline-flex.items-center.justify-center.text-caption.px-2.py-1.gap-1.rounded-full.bg-fill-secondary.text-text-secondary {
+            display: none !important;
+        }
+    `;
+    document.head.appendChild(style);
+})();
+
+
+
 // Function to hide difficulty labels and set background color
 function styleDifficultyTags() {
     try {
         document.querySelectorAll(
-            '.text-olive, .text-yellow, .text-pink, .dark\\:text-dark-olive, .dark\\:text-dark-yellow, .dark\\:text-dark-pink, ' +
+            '.text-olive, .text-yellow, .text-pink, ' +
+            '.dark\\:text-dark-olive, .dark\\:text-dark-yellow, .dark\\:text-dark-pink, ' +
             '.text-difficulty-easy, .text-difficulty-medium, .text-difficulty-hard, ' +
             '.dark\\:text-difficulty-easy, .dark\\:text-difficulty-medium, .dark\\:text-difficulty-hard, ' +
-            '.pull-right.label.label-Medium.round' // New selector added here
+            '.pull-right.label.label-Medium.round, ' +
+            '.text-sd-easy, .text-sd-medium, .text-sd-hard, ' + // Already targeting some existing classes
+            '.mx-0.text-\\[14px\\].text-sd-easy.lc-xl\\:mx-4, ' +
+            '.mx-0.text-\\[14px\\].text-sd-medium.lc-xl\\:mx-4, ' +
+            '.mx-0.text-\\[14px\\].text-sd-hard.lc-xl\\:mx-4'
         ).forEach((el) => {
             el.style.backgroundColor = 'white'; // Change background color to white
             el.style.color = 'transparent'; // Make text invisible
