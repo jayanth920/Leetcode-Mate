@@ -20,8 +20,7 @@
         .mx-0.text-\\[14px\\].text-sd-easy.lc-xl\\:mx-4,
         .mx-0.text-\\[14px\\].text-sd-medium.lc-xl\\:mx-4,
         .mx-0.text-\\[14px\\].text-sd-hard.lc-xl\\:mx-4 {
-            color: transparent !important;
-            background-color: white !important;
+            display: none !important;
         }
 
         a.no-underline.hover\\:text-current.relative.inline-flex.items-center.justify-center.text-caption.px-2.py-1.gap-1.rounded-full.bg-fill-secondary.text-text-secondary {
